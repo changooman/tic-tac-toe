@@ -11,7 +11,7 @@ class TicTacToeBoard:
         """
         Make a move on the board.
         """
-        if self.board[row][col] == '.':
+        if self.board[row][col] == '.' and  0 <= row < self.width and 0 <= col < self.length:
             self.board[row][col] = player
             return True
         return False
@@ -126,7 +126,7 @@ class TicTacToeBoard:
         """
         Determine if the game is over either by win or by no moves left.
         """
-        if not self.any_moves_left() or bool(self.check_winner()):
+        if bool(self.check_winner()) or not self.any_moves_left():
             print("Game over.")
             return True
         return False
